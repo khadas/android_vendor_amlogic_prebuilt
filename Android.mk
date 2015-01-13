@@ -14,10 +14,8 @@
 
 LOCAL_PATH := $(call my-dir)
 
-# ==============================================================================
 include $(CLEAR_VARS)
 
-# ==============================================================================
 define PREBUILT_template
     LOCAL_MODULE:= $(1)
     LOCAL_MODULE_CLASS := APPS
@@ -35,7 +33,11 @@ define PREBUILT_APP_template
 endef
 
 prebuilt_apps := \
-    MiracastSink
+    FactoryTest \
+    RC_Service
 
 $(foreach app,$(prebuilt_apps), \
     $(eval $(call PREBUILT_APP_template, $(app),)))
+
+include $(call all-makefiles-under,$(LOCAL_PATH))
+
