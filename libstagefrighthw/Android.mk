@@ -28,7 +28,9 @@ LOCAL_PREBUILT_LIBS := libomx_av_core_alt.so \
                        libfpscalculator_alt.so \
                        libomx_clock_utils_alt.so \
                        libomx_timed_task_queue_alt.so \
-                       libstagefrighthw.so
+                       libstagefrighthw.so \
+                       libsecmem.so \
+                       secmem.tzo
 
 include $(BUILD_MULTI_PREBUILT)
 endif
