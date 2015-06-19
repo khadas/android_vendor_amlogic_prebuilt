@@ -1,37 +1,170 @@
-# Copyright (C) 2012 Amlogic Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#      http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
 ifeq (,$(wildcard hardware/amlogic/omx))
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
+LOCAL_MODULE := libstagefrighthw
+LOCAL_MULTILIB := both
+LOCAL_MODULE_SUFFIX := .so
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_PATH_32 := $(TARGET_OUT)/lib/
+LOCAL_MODULE_PATH_64 := $(TARGET_OUT)/lib64/
+LOCAL_SRC_FILES_arm := lib/$(LOCAL_MODULE)$(LOCAL_MODULE_SUFFIX)
+LOCAL_SRC_FILES_arm64 := lib64/$(LOCAL_MODULE)$(LOCAL_MODULE_SUFFIX)
+include $(BUILD_PREBUILT)
 
-LOCAL_PREBUILT_LIBS := libomx_av_core_alt.so \
-                       libOmxCore.so \
-                       libOmxVideo.so \
-                       libthreadworker_alt.so \
-                       libdatachunkqueue_alt.so \
-                       libOmxBase.so \
-                       libomx_framework_alt.so \
-                       libomx_worker_peer_alt.so \
-                       libfpscalculator_alt.so \
-                       libomx_clock_utils_alt.so \
-                       libomx_timed_task_queue_alt.so \
-                       libstagefrighthw.so \
-                       libsecmem.so \
-                       secmem.tzo
+include $(CLEAR_VARS)
+LOCAL_MODULE := libthreadworker_alt
+LOCAL_MULTILIB := both
+LOCAL_MODULE_SUFFIX := .so
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_PATH_32 := $(TARGET_OUT)/lib/
+LOCAL_MODULE_PATH_64 := $(TARGET_OUT)/lib64/
+LOCAL_SRC_FILES_arm := lib/$(LOCAL_MODULE)$(LOCAL_MODULE_SUFFIX)
+LOCAL_SRC_FILES_arm64 := lib64/$(LOCAL_MODULE)$(LOCAL_MODULE_SUFFIX)
+include $(BUILD_PREBUILT)
 
-include $(BUILD_MULTI_PREBUILT)
+include $(CLEAR_VARS)
+LOCAL_MODULE := libOmxVideo
+LOCAL_MULTILIB := both
+LOCAL_MODULE_SUFFIX := .so
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_PATH_32 := $(TARGET_OUT)/lib/
+LOCAL_MODULE_PATH_64 := $(TARGET_OUT)/lib64/
+LOCAL_SRC_FILES_arm := lib/$(LOCAL_MODULE)$(LOCAL_MODULE_SUFFIX)
+LOCAL_SRC_FILES_arm64 := lib64/$(LOCAL_MODULE)$(LOCAL_MODULE_SUFFIX)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := libOmxCore
+LOCAL_MULTILIB := both
+LOCAL_MODULE_SUFFIX := .so
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_PATH_32 := $(TARGET_OUT)/lib/
+LOCAL_MODULE_PATH_64 := $(TARGET_OUT)/lib64/
+LOCAL_SRC_FILES_arm := lib/$(LOCAL_MODULE)$(LOCAL_MODULE_SUFFIX)
+LOCAL_SRC_FILES_arm64 := lib64/$(LOCAL_MODULE)$(LOCAL_MODULE_SUFFIX)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := libOmxBase
+LOCAL_MULTILIB := both
+LOCAL_MODULE_SUFFIX := .so
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_PATH_32 := $(TARGET_OUT)/lib/
+LOCAL_MODULE_PATH_64 := $(TARGET_OUT)/lib64/
+LOCAL_SRC_FILES_arm := lib/$(LOCAL_MODULE)$(LOCAL_MODULE_SUFFIX)
+LOCAL_SRC_FILES_arm64 := lib64/$(LOCAL_MODULE)$(LOCAL_MODULE_SUFFIX)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := libomx_worker_peer_alt
+LOCAL_MULTILIB := both
+LOCAL_MODULE_SUFFIX := .so
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_PATH_32 := $(TARGET_OUT)/lib/
+LOCAL_MODULE_PATH_64 := $(TARGET_OUT)/lib64/
+LOCAL_SRC_FILES_arm := lib/$(LOCAL_MODULE)$(LOCAL_MODULE_SUFFIX)
+LOCAL_SRC_FILES_arm64 := lib64/$(LOCAL_MODULE)$(LOCAL_MODULE_SUFFIX)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := libomx_timed_task_queue_alt
+LOCAL_MULTILIB := both
+LOCAL_MODULE_SUFFIX := .so
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_PATH_32 := $(TARGET_OUT)/lib/
+LOCAL_MODULE_PATH_64 := $(TARGET_OUT)/lib64/
+LOCAL_SRC_FILES_arm := lib/$(LOCAL_MODULE)$(LOCAL_MODULE_SUFFIX)
+LOCAL_SRC_FILES_arm64 := lib64/$(LOCAL_MODULE)$(LOCAL_MODULE_SUFFIX)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := libomx_framework_alt
+LOCAL_MULTILIB := both
+LOCAL_MODULE_SUFFIX := .so
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_PATH_32 := $(TARGET_OUT)/lib/
+LOCAL_MODULE_PATH_64 := $(TARGET_OUT)/lib64/
+LOCAL_SRC_FILES_arm := lib/$(LOCAL_MODULE)$(LOCAL_MODULE_SUFFIX)
+LOCAL_SRC_FILES_arm64 := lib64/$(LOCAL_MODULE)$(LOCAL_MODULE_SUFFIX)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := libomx_clock_utils_alt
+LOCAL_MULTILIB := both
+LOCAL_MODULE_SUFFIX := .so
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_PATH_32 := $(TARGET_OUT)/lib/
+LOCAL_MODULE_PATH_64 := $(TARGET_OUT)/lib64/
+LOCAL_SRC_FILES_arm := lib/$(LOCAL_MODULE)$(LOCAL_MODULE_SUFFIX)
+LOCAL_SRC_FILES_arm64 := lib64/$(LOCAL_MODULE)$(LOCAL_MODULE_SUFFIX)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := libomx_av_core_alt
+LOCAL_MULTILIB := both
+LOCAL_MODULE_SUFFIX := .so
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_PATH_32 := $(TARGET_OUT)/lib/
+LOCAL_MODULE_PATH_64 := $(TARGET_OUT)/lib64/
+LOCAL_SRC_FILES_arm := lib/$(LOCAL_MODULE)$(LOCAL_MODULE_SUFFIX)
+LOCAL_SRC_FILES_arm64 := lib64/$(LOCAL_MODULE)$(LOCAL_MODULE_SUFFIX)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := libfpscalculator_alt
+LOCAL_MULTILIB := both
+LOCAL_MODULE_SUFFIX := .so
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_PATH_32 := $(TARGET_OUT)/lib/
+LOCAL_MODULE_PATH_64 := $(TARGET_OUT)/lib64/
+LOCAL_SRC_FILES_arm := lib/$(LOCAL_MODULE)$(LOCAL_MODULE_SUFFIX)
+LOCAL_SRC_FILES_arm64 := lib64/$(LOCAL_MODULE)$(LOCAL_MODULE_SUFFIX)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := libdatachunkqueue_alt
+LOCAL_MULTILIB := both
+LOCAL_MODULE_SUFFIX := .so
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_PATH_32 := $(TARGET_OUT)/lib/
+LOCAL_MODULE_PATH_64 := $(TARGET_OUT)/lib64/
+LOCAL_SRC_FILES_arm := lib/$(LOCAL_MODULE)$(LOCAL_MODULE_SUFFIX)
+LOCAL_SRC_FILES_arm64 := lib64/$(LOCAL_MODULE)$(LOCAL_MODULE_SUFFIX)
+include $(BUILD_PREBUILT)
+
+ifeq ($(BOARD_OMX_WITH_TVP),true)
+include $(CLEAR_VARS)
+LOCAL_MODULE := libsecmem
+LOCAL_MULTILIB := 32
+LOCAL_MODULE_SUFFIX := .so
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_PATH_32 := $(TARGET_OUT)/lib/
+LOCAL_SRC_FILES_arm := lib/$(LOCAL_MODULE)$(LOCAL_MODULE_SUFFIX)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := secmem
+LOCAL_MULTILIB := 32
+LOCAL_MODULE_SUFFIX := .tzo
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_PATH_32 := $(TARGET_OUT)/lib/
+LOCAL_SRC_FILES_arm := lib/$(LOCAL_MODULE)$(LOCAL_MODULE_SUFFIX)
+include $(BUILD_PREBUILT)
 endif
 
+endif
