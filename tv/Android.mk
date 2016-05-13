@@ -4,7 +4,11 @@ include $(CLEAR_VARS)
 LOCAL_MODULE_TAGS := optional
 LOCAL_PREBUILT_LIBS := libtv.so
 include $(BUILD_MULTI_PREBUILT)
-include $(call all-makefiles-under,$(LOCAL_PATH))
+
+include $(CLEAR_VARS)
+LOCAL_MODULE_TAGS := optional
+LOCAL_PREBUILT_LIBS := libtv_linker.so
+include $(BUILD_MULTI_PREBUILT)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE_TAGS := optional
