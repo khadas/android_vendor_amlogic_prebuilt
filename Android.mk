@@ -34,7 +34,9 @@ endef
 
 prebuilt_apps := \
     FactoryTest \
-    RC_Service
+    RC_Service \
+    ReadLog
+
 
 $(foreach app,$(prebuilt_apps), \
     $(eval $(call PREBUILT_APP_template, $(app),)))
