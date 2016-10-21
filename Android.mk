@@ -35,7 +35,8 @@ endef
 prebuilt_apps := \
     FactoryTest \
     RC_Service \
-    ReadLog
+    ReadLog \
+    BluetoothRemote
 
 
 $(foreach app,$(prebuilt_apps), \
