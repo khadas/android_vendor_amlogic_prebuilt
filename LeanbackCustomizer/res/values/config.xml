@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <bool name="partner_show_live_tv_on_start_up">true</bool>
+    <bool name="partner_show_live_tv_on_start_up">false</bool>
 
-    <bool name="disable_disconnected_inputs">false</bool>
-    <bool name="show_physical_tuners_separately">true</bool>
-    <string name="bundled_tuner_title">All Channels</string>
-    <item type="drawable" name="bundled_tuner_banner">@drawable/ic_bundled_tuner_banner</item>
-
+    <bool name="disable_disconnected_inputs">true</bool>
+    <bool name="show_physical_tuners_separately">false</bool>
     <!-- DO NOT TRANSLATE -->
     <string name="partner_app_sorting_mode" translatable="false">recency</string>
 
@@ -22,7 +19,6 @@
     <!-- DO NOT TRANSLATE -->
     <string-array name="home_screen_row_ordering" translatable="false">
         <item>partner_row</item>
-        <item>inputs_row</item>
         <item>games_row</item>
         <item>apps_row</item>
         <item>settings_row</item>
