@@ -49,11 +49,11 @@ public class PartnerReceiver extends BroadcastReceiver {
     private static final String PLAYER_PKG_NAME = "com.droidlogic.videoplayer";
     private static final String DLNA_PKG_NAME = "com.droidlogic.mediacenter";
     private static final String UPDATE_PKG_NAME = "com.droidlogic.otaupgrade";
-
+    private static final String LEANBANK_PKG = "com.google.android.leanbacklauncher";
     private Context mContext;
     private NotificationManager mNotifMan;
     private PackageManager mPkgMan;
-
+    private Handler mHandler;
     // Cutoff value for when the Launcher displays the Partner row as a single
     // row, or a two row grid. Can be used for correctly positioning the partner
     // app entries.
@@ -61,19 +61,22 @@ public class PartnerReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        if (mContext == null) {
+        android.util.Log.d("XX",intent.getAction());
+        if ( mContext == null ) {
             mContext = context;
             mNotifMan = (NotificationManager)
-                    mContext.getSystemService(Context.NOTIFICATION_SERVICE);
+                        mContext.getSystemService(Context.NOTIFICATION_SERVICE);
             mPkgMan = mContext.getPackageManager();
+            mHandler = new Handler();
         }
-
         String action = intent.getAction();
-        if (Intent.ACTION_PACKAGE_ADDED.equals(action)||
-                Intent.ACTION_PACKAGE_REMOVED.equals(action)) {
+
+        if (Intent.ACTION_PACKAGE_ADDED.equals(action) /*||
+                Intent.ACTION_PACKAGE_REMOVED.equals(action)*/) {
             postNotification(getPackageName(intent));
-        } else if (ACTION_PARTNER_CUSTOMIZATION.equals(action)) {
-            mRowCutoff = intent.getIntExtra(EXTRA_ROW_WRAPPING_CUTOFF, 0);
+        } else if (Intent.ACTION_BOOT_COMPLETED.equals(action) ||
+            ACTION_PARTNER_CUSTOMIZATION.equals(action) ||
+            Intent.ACTION_PACKAGE_REPLACED.equals(action) && getPackageName(intent).equals(LEANBANK_PKG)) {
             postNotification(PLAYER_PKG_NAME);
             postNotification(DLNA_PKG_NAME);
             postNotification(UPDATE_PKG_NAME);
@@ -112,8 +115,12 @@ public class PartnerReceiver extends BroadcastReceiver {
             default:
                 return;
         }
-
-        postNotification(sort, resId, backupResId, titleId, backupTitleId, pkgName);
+        mHandler.post(new Runnable(){
+            public void run() {
+                postNotification(sort, resId, backupResId, titleId, backupTitleId, pkgName);
+            }
+        });
+        //postNotification(sort, resId, backupResId, titleId, backupTitleId, pkgName);
     }
 
     private void postNotification(int sort, int resId, int backupResId,
@@ -130,7 +137,6 @@ public class PartnerReceiver extends BroadcastReceiver {
         Notification.Builder bob = new Notification.Builder(mContext);
         Bundle extras = new Bundle();
         extras.putString(BLACKLIST_PACKAGE, pkgName);
-
         bob.setContentTitle(mContext.getString(titleId))
                 .setSmallIcon(R.drawable.ic_launcher)
                 .setLargeIcon(BitmapFactory.decodeResource(mContext.getResources(), resId))
@@ -140,7 +146,6 @@ public class PartnerReceiver extends BroadcastReceiver {
                 .setSortKey(sort+"")
                 .setColor(mContext.getResources().getColor(R.color.partner_color))
                 .setExtras(extras);
-
         mNotifMan.notify(id, bob.build());
     }
 
