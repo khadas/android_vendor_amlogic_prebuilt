@@ -115,11 +115,11 @@ public class PartnerReceiver extends BroadcastReceiver {
             default:
                 return;
         }
-        mHandler.post(new Runnable(){
+        mHandler.postDelayed(new Runnable(){
             public void run() {
                 postNotification(sort, resId, backupResId, titleId, backupTitleId, pkgName);
             }
-        });
+        },3000);
         //postNotification(sort, resId, backupResId, titleId, backupTitleId, pkgName);
     }
 
