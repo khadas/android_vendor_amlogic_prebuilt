@@ -23,11 +23,12 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.pm.PackageInfo;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-
+import java.util.List;
 /**
  * This class posts notifications that are used to populate the Partner Row of the Leanback Launcher
  * It also allows the system/launcher to find the correct partner customization
@@ -82,14 +83,28 @@ public class PartnerReceiver extends BroadcastReceiver {
             postNotification(UPDATE_PKG_NAME);
         }
     }
-
+    private boolean isPkgExist(String pkgName) {
+        List<PackageInfo> applist = mPkgMan.getInstalledPackages(0);
+        if ( applist == null )
+            return false;
+        boolean isExist = false;
+        for ( PackageInfo pkg : applist ) {
+            if (pkgName.equals(pkg.packageName)) {
+                isExist = true;
+            }
+        }
+        if (isExist) return true;
+        return false;
+    }
     private void postNotification(String pkgName) {
         int sort;
         int resId;
         int backupResId;
         int titleId;
         int backupTitleId;
-
+        if ( !isPkgExist(pkgName) ) {
+            return;
+        }
         switch (pkgName) {
             case PLAYER_PKG_NAME:
                 sort = 1;
