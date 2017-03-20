@@ -36,7 +36,8 @@ prebuilt_apps := \
     FactoryTest \
     RC_Service \
     ReadLog \
-    BluetoothRemote
+    BluetoothRemote \
+    Happycast_Tv
 
 
 $(foreach app,$(prebuilt_apps), \
