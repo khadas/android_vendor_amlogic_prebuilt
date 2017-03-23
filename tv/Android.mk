@@ -1,7 +1,7 @@
 LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
-ifeq ($(wildcard vendor/amlogic/tvserver/Android.mk),vendor/amlogic/tvserver/Android.mk)
+ifeq ($(wildcard vendor/amlogic/tv/tvserver/Android.mk),vendor/amlogic/tv/tvserver/Android.mk)
 $(info "have tvserver source code")
 else
 $(info "no tvserver source code, add binary lib")
