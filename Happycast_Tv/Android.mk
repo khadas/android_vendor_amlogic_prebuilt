@@ -27,4 +27,7 @@ LOCAL_PREBUILT_JNI_LIBS := \
     lib/armeabi-v7a/liblebodlna-jni.so \
     lib/armeabi-v7a/libndkbitmap.so
 LOCAL_MULTILIB := 32
+ifeq ($(shell test $(PLATFORM_SDK_VERSION) -ge 26 && echo OK),OK)
+LOCAL_PROPRIETARY_MODULE := true
+endif
 include $(BUILD_PREBUILT)
