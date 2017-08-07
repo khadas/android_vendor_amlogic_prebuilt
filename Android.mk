@@ -33,7 +33,6 @@ define PREBUILT_APP_template
 endef
 
 prebuilt_apps := \
-    FactoryTest \
     RC_Service \
     ReadLog \
     BluetoothRemote
