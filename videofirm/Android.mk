@@ -3,14 +3,6 @@
 ####################################################
 
 LOCAL_PATH := $(call my-dir)
-
-include $(CLEAR_VARS)
-LOCAL_MODULE := video_ucode.bin
-LOCAL_MODULE_CLASS := ETC
-LOCAL_MODULE_PATH := $(TARGET_OUT)/vendor/lib/firmware/video
-LOCAL_SRC_FILES :=$(LOCAL_MODULE)
-include $(BUILD_PREBUILT)
-
 include $(CLEAR_VARS)
 LOCAL_MODULE := tee_preload_fw
 LOCAL_MODULE_CLASS := ETC
