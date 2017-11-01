@@ -1,4 +1,4 @@
-ifeq (,$(wildcard hardware/amlogic/wifi/libwifi_hal_ext))
+ifeq (,$(wildcard hardware/amlogic/wifi/wifi-ext))
 LOCAL_PATH := $(call my-dir)
 
 ifeq ($(shell test $(PLATFORM_SDK_VERSION) -ge 26 && echo OK),OK)
